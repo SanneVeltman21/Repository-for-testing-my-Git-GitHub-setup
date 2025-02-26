@@ -1,0 +1,42 @@
+---
+title: "Dashboard"
+author: "Sanne Veltman"
+date: "2025-02-19"
+output: 
+  flexdashboard::flex_dashboard:
+    storyboard: true
+---
+### Introduction
+My name is Sanne Veltman and for the course computational Musicology I am analyzing the music of my roommate. The names of the tracks are "Ga Maar" and "Niks Meer Over". The music is about important things in life like mental health awareness. 
+
+More to information to add
+
+***
+### Visualisation
+
+
+```{r}
+# 
+library(ggplot2)
+
+# Waarden
+waarden <- c(0.5268, 4.3736, 0.7555, 0.6204, 0.1690, 124, 4.3702)
+labels <- c("Tempo", "Valence", "Approachability", "Arousal", 
+            "Danceability", "Engagingness", "Instrumentalness")
+
+# Dataframe
+df <- data.frame(labels, waarden)
+
+# Barplot
+ggplot(df, aes(x = labels, y = waarden, fill = labels)) +
+  geom_bar(stat = "identity") +  
+  ggtitle("Muzikale Eigenschappen Visualisatie") +
+  xlab("Eigenschappen") +
+  ylab("Waarde") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))  # Draaien van de labels
+
+```
+
+***
+### Conclusion/Discussion
